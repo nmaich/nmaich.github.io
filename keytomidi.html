@@ -50,7 +50,19 @@
     </div>
 
     <div class="visual-tester-keymap"
-        style="--unit-width:1; --unit-height:1; --default-smaller-key-font-size:0.61rem; --default-key-font-size:0.85rem; --default-key-height:40px; --default-key-width:40px; --default-key-x-spacing:45px; --default-key-y-spacing:45px; width: 1007.5px; height: 287.5px;">
+        style="--unit-width:1; --unit-height:1; --default-smaller-key-font-size:0.61rem; --default-key-font-size:0.85rem; --default-key-height:40px; --default-key-width:40px; --default-key-x-spacing:45px; --default-key-y-spacing:45px; width: 700.5px; height: 287.5px;">
+        <div id="key-0-1" title="F1" class="key" style="top: 20.5px; left: 110px;">F1</div>
+        <div id="key-0-2" title="F2" class="key" style="top: 20.5px; left: 155px;">F2</div>
+        <div id="key-0-3" title="F3" class="key" style="top: 20.5px; left: 200px;">F3</div>
+        <div id="key-0-4" title="F4" class="key" style="top: 20.5px; left: 245px;">F4</div>
+        <div id="key-0-5" title="F5" class="key" style="top: 20.5px; left: 297.5px;">F5</div>
+        <div id="key-0-6" title="F6" class="key" style="top: 20.5px; left: 342.5px;">F6</div>
+        <div id="key-0-7" title="F7" class="key" style="top: 20.5px; left: 387.5px;">F7</div>
+        <div id="key-0-8" title="F8" class="key" style="top: 20.5px; left: 432.5px;">F8</div>
+        <div id="key-0-9" title="F9" class="key" style="top: 20.5px; left: 485px;">F9</div>
+        <div id="key-0-10" title="F10" class="key" style="top: 20.5px; left: 530px;">F10</div>
+        <div id="key-0-11" title="F11" class="key" style="top: 20.5px; left: 575px;">F11</div>
+        <div id="key-0-12" title="F12" class="key" style="top: 20.5px; left: 620px;">F12</div>
         <div id="key-0-17" title="1" class="key" style="top: 67.5px; left: 45px;">1</div>
         <div id="key-0-18" title="2" class="key" style="top: 67.5px; left: 90px;">2</div>
         <div id="key-0-19" title="3" class="key" style="top: 67.5px; left: 135px;">3</div>
@@ -126,10 +138,33 @@
 
         initMidi();
 
+
+        window.document.onkeydown = function(event){
+        
+    
+        };
+
         //add keyinput event listener
         //appearance
         document.body.addEventListener('keydown',
             event => {
+                {
+                    if (event.keyCode == '112') { document.querySelector('[title="F1"]').classList.add('detected'); } 
+                    if (event.keyCode == '113') { document.querySelector('[title="F2"]').classList.add('detected'); } 
+                    if (event.keyCode == '114') { document.querySelector('[title="F3"]').classList.add('detected'); } 
+                    if (event.keyCode == '115') { document.querySelector('[title="F4"]').classList.add('detected'); } 
+                    if (event.keyCode == '116') { document.querySelector('[title="F5"]').classList.add('detected'); } 
+                    if (event.keyCode == '117') { document.querySelector('[title="F6"]').classList.add('detected'); } 
+                    if (event.keyCode == '118') { document.querySelector('[title="F7"]').classList.add('detected'); } 
+                    if (event.keyCode == '119') { document.querySelector('[title="F8"]').classList.add('detected'); } 
+                    if (event.keyCode == '120') { document.querySelector('[title="F9"]').classList.add('detected'); } 
+                    if (event.keyCode == '121') { document.querySelector('[title="F10"]').classList.add('detected'); }
+                    if (event.keyCode == '122') { document.querySelector('[title="F11"]').classList.add('detected'); }
+                    if (event.keyCode == '123') { document.querySelector('[title="F12"]').classList.add('detected'); }
+                    //disable function key default action   
+                    event.keyCode = null;
+                    event.returnValue = false;
+                }
                 if (event.key === '1' && !event.repeat) { document.querySelector('[title="1"]').classList.add('detected'); }
                 if (event.key === '2' && !event.repeat) { document.querySelector('[title="2"]').classList.add('detected'); }
                 if (event.key === '3' && !event.repeat) { document.querySelector('[title="3"]').classList.add('detected'); }
@@ -179,10 +214,40 @@
                 if (event.keyCode == '37') { document.querySelector('[title="left"]').classList.add('detected'); } //left
                 if (event.keyCode == '39') { document.querySelector('[title="right"]').classList.add('detected'); } //right
                 if (event.keyCode == '38') { document.querySelector('[title="up"]').classList.add('detected'); } //up
-                if (event.keyCode == '40') { document.querySelector('[title="down"]').classList.add('detected'); } //down
+                if (event.keyCode == '40') { document.querySelector('[title="down"]').classList.add('detected'); } //down                
+                if(event.keyCode >= 112 && event.keyCode <= 123)
+                {
+                    if (event.keyCode == '112') { document.querySelector('[title="F1"]').classList.add('detected'); } 
+                    if (event.keyCode == '113') { document.querySelector('[title="F2"]').classList.add('detected'); } 
+                    if (event.keyCode == '114') { document.querySelector('[title="F3"]').classList.add('detected'); } 
+                    if (event.keyCode == '115') { document.querySelector('[title="F4"]').classList.add('detected'); } 
+                    if (event.keyCode == '116') { document.querySelector('[title="F5"]').classList.add('detected'); } 
+                    if (event.keyCode == '117') { document.querySelector('[title="F6"]').classList.add('detected'); } 
+                    if (event.keyCode == '118') { document.querySelector('[title="F7"]').classList.add('detected'); } 
+                    if (event.keyCode == '119') { document.querySelector('[title="F8"]').classList.add('detected'); } 
+                    if (event.keyCode == '120') { document.querySelector('[title="F9"]').classList.add('detected'); } 
+                    if (event.keyCode == '121') { document.querySelector('[title="F10"]').classList.add('detected'); }
+                    if (event.keyCode == '122') { document.querySelector('[title="F11"]').classList.add('detected'); }
+                    if (event.keyCode == '123') { document.querySelector('[title="F12"]').classList.add('detected'); }
+                    //disable function key default action   
+                    event.keyCode = null;
+                    event.returnValue = false;
+                }
             });
             document.body.addEventListener('keyup',
             event => {
+                if (event.keyCode == '112') { document.querySelector('[title="F1"]').classList.remove('detected'); } 
+                if (event.keyCode == '113') { document.querySelector('[title="F2"]').classList.remove('detected'); } 
+                if (event.keyCode == '114') { document.querySelector('[title="F3"]').classList.remove('detected'); } 
+                if (event.keyCode == '115') { document.querySelector('[title="F4"]').classList.remove('detected'); } 
+                if (event.keyCode == '116') { document.querySelector('[title="F5"]').classList.remove('detected'); } 
+                if (event.keyCode == '117') { document.querySelector('[title="F6"]').classList.remove('detected'); } 
+                if (event.keyCode == '118') { document.querySelector('[title="F7"]').classList.remove('detected'); } 
+                if (event.keyCode == '119') { document.querySelector('[title="F8"]').classList.remove('detected'); } 
+                if (event.keyCode == '120') { document.querySelector('[title="F9"]').classList.remove('detected'); } 
+                if (event.keyCode == '121') { document.querySelector('[title="F10"]').classList.remove('detected'); }
+                if (event.keyCode == '122') { document.querySelector('[title="F11"]').classList.remove('detected'); }
+                if (event.keyCode == '123') { document.querySelector('[title="F12"]').classList.remove('detected'); }
                 if (event.key === '1' && !event.repeat) { document.querySelector('[title="1"]').classList.remove('detected'); }
                 if (event.key === '2' && !event.repeat) { document.querySelector('[title="2"]').classList.remove('detected'); }
                 if (event.key === '3' && !event.repeat) { document.querySelector('[title="3"]').classList.remove('detected'); }
@@ -233,11 +298,24 @@
                 if (event.keyCode == '39') { document.querySelector('[title="right"]').classList.remove('detected'); } //right
                 if (event.keyCode == '38') { document.querySelector('[title="up"]').classList.remove('detected'); } //up
                 if (event.keyCode == '40') { document.querySelector('[title="down"]').classList.remove('detected'); } //down
+
             });
 
         //send midi message
         document.body.addEventListener('keydown',
             event => {
+                if (event.keyCode == '112') { outMessage(0x90, note_ref + 1 , velocity); }
+                if (event.keyCode == '113') { outMessage(0x90, note_ref + 4 , velocity); }
+                if (event.keyCode == '114') { outMessage(0x90, note_ref + 7 , velocity); }
+                if (event.keyCode == '115') { outMessage(0x90, note_ref + 10, velocity); }
+                if (event.keyCode == '116') { outMessage(0x90, note_ref + 13, velocity); }
+                if (event.keyCode == '117') { outMessage(0x90, note_ref + 16, velocity); }
+                if (event.keyCode == '118') { outMessage(0x90, note_ref + 19, velocity); }
+                if (event.keyCode == '119') { outMessage(0x90, note_ref + 22, velocity); }
+                if (event.keyCode == '120') { outMessage(0x90, note_ref + 25, velocity); }
+                if (event.keyCode == '121') { outMessage(0x90, note_ref + 28, velocity); }
+                if (event.keyCode == '122') { outMessage(0x90, note_ref + 31, velocity); }
+                if (event.keyCode == '123') { outMessage(0x90, note_ref + 34, velocity); }
                 if (event.key === '3' && !event.repeat) { outMessage(0x90, note_ref + 3, velocity); }
                 if (event.key === '4' && !event.repeat) { outMessage(0x90, note_ref + 6, velocity); }
                 if (event.key === '5' && !event.repeat) { outMessage(0x90, note_ref + 9, velocity); }
@@ -290,6 +368,18 @@
             });
         document.body.addEventListener('keyup',
             event => {
+                if (event.keyCode == '112') { outMessage(0x80, note_ref + 1 , velocity); }
+                if (event.keyCode == '113') { outMessage(0x80, note_ref + 4 , velocity); }
+                if (event.keyCode == '114') { outMessage(0x80, note_ref + 7 , velocity); }
+                if (event.keyCode == '115') { outMessage(0x80, note_ref + 10, velocity); }
+                if (event.keyCode == '116') { outMessage(0x80, note_ref + 13, velocity); }
+                if (event.keyCode == '117') { outMessage(0x80, note_ref + 16, velocity); }
+                if (event.keyCode == '118') { outMessage(0x80, note_ref + 19, velocity); }
+                if (event.keyCode == '119') { outMessage(0x80, note_ref + 22, velocity); }
+                if (event.keyCode == '120') { outMessage(0x80, note_ref + 25, velocity); }
+                if (event.keyCode == '121') { outMessage(0x80, note_ref + 28, velocity); }
+                if (event.keyCode == '122') { outMessage(0x80, note_ref + 31, velocity); }
+                if (event.keyCode == '123') { outMessage(0x80, note_ref + 34, velocity); }
                 if (event.key === '3' && !event.repeat) { outMessage(0x80, note_ref + 3, velocity); }
                 if (event.key === '4' && !event.repeat) { outMessage(0x80, note_ref + 6, velocity); }
                 if (event.key === '5' && !event.repeat) { outMessage(0x80, note_ref + 9, velocity); }
@@ -340,6 +430,7 @@
     function clamp(num, min, max) {
         return num <= min ? min : num >= max ? max : num;
     }
+
 
 </script>
 
