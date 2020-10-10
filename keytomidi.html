@@ -138,29 +138,23 @@
 
         initMidi();
 
-
-        window.document.onkeydown = function(event){
-        
-    
-        };
-
         //add keyinput event listener
         //appearance
         document.body.addEventListener('keydown',
             event => {
                 {
-                    if (event.keyCode == '112') { document.querySelector('[title="F1"]').classList.add('detected'); } 
-                    if (event.keyCode == '113') { document.querySelector('[title="F2"]').classList.add('detected'); } 
-                    if (event.keyCode == '114') { document.querySelector('[title="F3"]').classList.add('detected'); } 
-                    if (event.keyCode == '115') { document.querySelector('[title="F4"]').classList.add('detected'); } 
-                    if (event.keyCode == '116') { document.querySelector('[title="F5"]').classList.add('detected'); } 
-                    if (event.keyCode == '117') { document.querySelector('[title="F6"]').classList.add('detected'); } 
-                    if (event.keyCode == '118') { document.querySelector('[title="F7"]').classList.add('detected'); } 
-                    if (event.keyCode == '119') { document.querySelector('[title="F8"]').classList.add('detected'); } 
-                    if (event.keyCode == '120') { document.querySelector('[title="F9"]').classList.add('detected'); } 
-                    if (event.keyCode == '121') { document.querySelector('[title="F10"]').classList.add('detected'); }
-                    if (event.keyCode == '122') { document.querySelector('[title="F11"]').classList.add('detected'); }
-                    if (event.keyCode == '123') { document.querySelector('[title="F12"]').classList.add('detected'); }
+                    if (event.keyCode == '112' && !event.repeat) { document.querySelector('[title="F1"]').classList.add('detected'); } 
+                    if (event.keyCode == '113' && !event.repeat) { document.querySelector('[title="F2"]').classList.add('detected'); } 
+                    if (event.keyCode == '114' && !event.repeat) { document.querySelector('[title="F3"]').classList.add('detected'); } 
+                    if (event.keyCode == '115' && !event.repeat) { document.querySelector('[title="F4"]').classList.add('detected'); } 
+                    if (event.keyCode == '116' && !event.repeat) { document.querySelector('[title="F5"]').classList.add('detected'); } 
+                    if (event.keyCode == '117' && !event.repeat) { document.querySelector('[title="F6"]').classList.add('detected'); } 
+                    if (event.keyCode == '118' && !event.repeat) { document.querySelector('[title="F7"]').classList.add('detected'); } 
+                    if (event.keyCode == '119' && !event.repeat) { document.querySelector('[title="F8"]').classList.add('detected'); } 
+                    if (event.keyCode == '120' && !event.repeat) { document.querySelector('[title="F9"]').classList.add('detected'); } 
+                    if (event.keyCode == '121' && !event.repeat) { document.querySelector('[title="F10"]').classList.add('detected'); }
+                    if (event.keyCode == '122' && !event.repeat) { document.querySelector('[title="F11"]').classList.add('detected'); }
+                    if (event.keyCode == '123' && !event.repeat) { document.querySelector('[title="F12"]').classList.add('detected'); }
                     //disable function key default action   
                     event.keyCode = null;
                     event.returnValue = false;
@@ -236,18 +230,18 @@
             });
             document.body.addEventListener('keyup',
             event => {
-                if (event.keyCode == '112') { document.querySelector('[title="F1"]').classList.remove('detected'); } 
-                if (event.keyCode == '113') { document.querySelector('[title="F2"]').classList.remove('detected'); } 
-                if (event.keyCode == '114') { document.querySelector('[title="F3"]').classList.remove('detected'); } 
-                if (event.keyCode == '115') { document.querySelector('[title="F4"]').classList.remove('detected'); } 
-                if (event.keyCode == '116') { document.querySelector('[title="F5"]').classList.remove('detected'); } 
-                if (event.keyCode == '117') { document.querySelector('[title="F6"]').classList.remove('detected'); } 
-                if (event.keyCode == '118') { document.querySelector('[title="F7"]').classList.remove('detected'); } 
-                if (event.keyCode == '119') { document.querySelector('[title="F8"]').classList.remove('detected'); } 
-                if (event.keyCode == '120') { document.querySelector('[title="F9"]').classList.remove('detected'); } 
-                if (event.keyCode == '121') { document.querySelector('[title="F10"]').classList.remove('detected'); }
-                if (event.keyCode == '122') { document.querySelector('[title="F11"]').classList.remove('detected'); }
-                if (event.keyCode == '123') { document.querySelector('[title="F12"]').classList.remove('detected'); }
+                if (event.keyCode == '112' && !event.repeat) { document.querySelector('[title="F1"]').classList.remove('detected'); } 
+                if (event.keyCode == '113' && !event.repeat) { document.querySelector('[title="F2"]').classList.remove('detected'); } 
+                if (event.keyCode == '114' && !event.repeat) { document.querySelector('[title="F3"]').classList.remove('detected'); } 
+                if (event.keyCode == '115' && !event.repeat) { document.querySelector('[title="F4"]').classList.remove('detected'); } 
+                if (event.keyCode == '116' && !event.repeat) { document.querySelector('[title="F5"]').classList.remove('detected'); } 
+                if (event.keyCode == '117' && !event.repeat) { document.querySelector('[title="F6"]').classList.remove('detected'); } 
+                if (event.keyCode == '118' && !event.repeat) { document.querySelector('[title="F7"]').classList.remove('detected'); } 
+                if (event.keyCode == '119' && !event.repeat) { document.querySelector('[title="F8"]').classList.remove('detected'); } 
+                if (event.keyCode == '120' && !event.repeat) { document.querySelector('[title="F9"]').classList.remove('detected'); } 
+                if (event.keyCode == '121' && !event.repeat) { document.querySelector('[title="F10"]').classList.remove('detected'); }
+                if (event.keyCode == '122' && !event.repeat) { document.querySelector('[title="F11"]').classList.remove('detected'); }
+                if (event.keyCode == '123' && !event.repeat) { document.querySelector('[title="F12"]').classList.remove('detected'); }
                 if (event.key === '1' && !event.repeat) { document.querySelector('[title="1"]').classList.remove('detected'); }
                 if (event.key === '2' && !event.repeat) { document.querySelector('[title="2"]').classList.remove('detected'); }
                 if (event.key === '3' && !event.repeat) { document.querySelector('[title="3"]').classList.remove('detected'); }
@@ -304,18 +298,18 @@
         //send midi message
         document.body.addEventListener('keydown',
             event => {
-                if (event.keyCode == '112') { outMessage(0x90, note_ref + 1 , velocity); }
-                if (event.keyCode == '113') { outMessage(0x90, note_ref + 4 , velocity); }
-                if (event.keyCode == '114') { outMessage(0x90, note_ref + 7 , velocity); }
-                if (event.keyCode == '115') { outMessage(0x90, note_ref + 10, velocity); }
-                if (event.keyCode == '116') { outMessage(0x90, note_ref + 13, velocity); }
-                if (event.keyCode == '117') { outMessage(0x90, note_ref + 16, velocity); }
-                if (event.keyCode == '118') { outMessage(0x90, note_ref + 19, velocity); }
-                if (event.keyCode == '119') { outMessage(0x90, note_ref + 22, velocity); }
-                if (event.keyCode == '120') { outMessage(0x90, note_ref + 25, velocity); }
-                if (event.keyCode == '121') { outMessage(0x90, note_ref + 28, velocity); }
-                if (event.keyCode == '122') { outMessage(0x90, note_ref + 31, velocity); }
-                if (event.keyCode == '123') { outMessage(0x90, note_ref + 34, velocity); }
+                if (event.keyCode == '112' && !event.repeat) { outMessage(0x90, note_ref + 1 , velocity); }
+                if (event.keyCode == '113' && !event.repeat) { outMessage(0x90, note_ref + 4 , velocity); }
+                if (event.keyCode == '114' && !event.repeat) { outMessage(0x90, note_ref + 7 , velocity); }
+                if (event.keyCode == '115' && !event.repeat) { outMessage(0x90, note_ref + 10, velocity); }
+                if (event.keyCode == '116' && !event.repeat) { outMessage(0x90, note_ref + 13, velocity); }
+                if (event.keyCode == '117' && !event.repeat) { outMessage(0x90, note_ref + 16, velocity); }
+                if (event.keyCode == '118' && !event.repeat) { outMessage(0x90, note_ref + 19, velocity); }
+                if (event.keyCode == '119' && !event.repeat) { outMessage(0x90, note_ref + 22, velocity); }
+                if (event.keyCode == '120' && !event.repeat) { outMessage(0x90, note_ref + 25, velocity); }
+                if (event.keyCode == '121' && !event.repeat) { outMessage(0x90, note_ref + 28, velocity); }
+                if (event.keyCode == '122' && !event.repeat) { outMessage(0x90, note_ref + 31, velocity); }
+                if (event.keyCode == '123' && !event.repeat) { outMessage(0x90, note_ref + 34, velocity); }
                 if (event.key === '3' && !event.repeat) { outMessage(0x90, note_ref + 3, velocity); }
                 if (event.key === '4' && !event.repeat) { outMessage(0x90, note_ref + 6, velocity); }
                 if (event.key === '5' && !event.repeat) { outMessage(0x90, note_ref + 9, velocity); }
@@ -368,18 +362,18 @@
             });
         document.body.addEventListener('keyup',
             event => {
-                if (event.keyCode == '112') { outMessage(0x80, note_ref + 1 , velocity); }
-                if (event.keyCode == '113') { outMessage(0x80, note_ref + 4 , velocity); }
-                if (event.keyCode == '114') { outMessage(0x80, note_ref + 7 , velocity); }
-                if (event.keyCode == '115') { outMessage(0x80, note_ref + 10, velocity); }
-                if (event.keyCode == '116') { outMessage(0x80, note_ref + 13, velocity); }
-                if (event.keyCode == '117') { outMessage(0x80, note_ref + 16, velocity); }
-                if (event.keyCode == '118') { outMessage(0x80, note_ref + 19, velocity); }
-                if (event.keyCode == '119') { outMessage(0x80, note_ref + 22, velocity); }
-                if (event.keyCode == '120') { outMessage(0x80, note_ref + 25, velocity); }
-                if (event.keyCode == '121') { outMessage(0x80, note_ref + 28, velocity); }
-                if (event.keyCode == '122') { outMessage(0x80, note_ref + 31, velocity); }
-                if (event.keyCode == '123') { outMessage(0x80, note_ref + 34, velocity); }
+                if (event.keyCode == '112' && !event.repeat) { outMessage(0x80, note_ref + 1 , velocity); }
+                if (event.keyCode == '113' && !event.repeat) { outMessage(0x80, note_ref + 4 , velocity); }
+                if (event.keyCode == '114' && !event.repeat) { outMessage(0x80, note_ref + 7 , velocity); }
+                if (event.keyCode == '115' && !event.repeat) { outMessage(0x80, note_ref + 10, velocity); }
+                if (event.keyCode == '116' && !event.repeat) { outMessage(0x80, note_ref + 13, velocity); }
+                if (event.keyCode == '117' && !event.repeat) { outMessage(0x80, note_ref + 16, velocity); }
+                if (event.keyCode == '118' && !event.repeat) { outMessage(0x80, note_ref + 19, velocity); }
+                if (event.keyCode == '119' && !event.repeat) { outMessage(0x80, note_ref + 22, velocity); }
+                if (event.keyCode == '120' && !event.repeat) { outMessage(0x80, note_ref + 25, velocity); }
+                if (event.keyCode == '121' && !event.repeat) { outMessage(0x80, note_ref + 28, velocity); }
+                if (event.keyCode == '122' && !event.repeat) { outMessage(0x80, note_ref + 31, velocity); }
+                if (event.keyCode == '123' && !event.repeat) { outMessage(0x80, note_ref + 34, velocity); }
                 if (event.key === '3' && !event.repeat) { outMessage(0x80, note_ref + 3, velocity); }
                 if (event.key === '4' && !event.repeat) { outMessage(0x80, note_ref + 6, velocity); }
                 if (event.key === '5' && !event.repeat) { outMessage(0x80, note_ref + 9, velocity); }
@@ -430,10 +424,6 @@
     function clamp(num, min, max) {
         return num <= min ? min : num >= max ? max : num;
     }
-
-
 </script>
-
-
 
 </html>
