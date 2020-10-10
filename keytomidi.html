@@ -5,9 +5,35 @@
     <meta charset="UTF-8">
     <title>WebMidiApiTest</title>
     <script type="text/javascript" src="my_webmidi_func.js"></script>
+    <style type="text/css">
+        .key {
+            position: absolute;
+            border-radius: 6px;
+            font-family: Montserrat, sans-serif;
+            font-size: var(--default-key-font-size);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 120%;
+            -webkit-box-shadow: 0 -1px 0 3px inset rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0, .3);
+            box-shadow: inset 0 -1px 0 3px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0, .3);
+            border-left: 1px solid rgba(0, 0, 0, .1);
+            border-right: 1px solid rgba(0, 0, 0, .1);
+            width: calc(var(--unit-width)*var(--default-key-x-spacing) - var(--default-key-x-spacing) + var(--default-key-width));
+            height: calc(var(--unit-height)*var(--default-key-y-spacing) - var(--default-key-y-spacing) + var(--default-key-height));
+        }
+        .key.detected {
+            background: #90ee90;
+        }
+
+        .visual-tester-keymap {
+            position: relative;
+            ;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="app"></div>
     <div>
         Select MIDI Port<br>
         <form name="input_device_select">
@@ -20,13 +46,74 @@
             <select name="ids" onchange="outputDeviceSelect(this);">
             </select>
         </form>
+        <br><br>
+    </div>
+
+    <div class="visual-tester-keymap"
+        style="--unit-width:1; --unit-height:1; --default-smaller-key-font-size:0.61rem; --default-key-font-size:0.85rem; --default-key-height:40px; --default-key-width:40px; --default-key-x-spacing:45px; --default-key-y-spacing:45px; width: 1007.5px; height: 287.5px;">
+        <div id="key-0-17" title="1" class="key" style="top: 67.5px; left: 45px;">1</div>
+        <div id="key-0-18" title="2" class="key" style="top: 67.5px; left: 90px;">2</div>
+        <div id="key-0-19" title="3" class="key" style="top: 67.5px; left: 135px;">3</div>
+        <div id="key-0-20" title="4" class="key" style="top: 67.5px; left: 180px;">4</div>
+        <div id="key-0-21" title="5" class="key" style="top: 67.5px; left: 225px;">5</div>
+        <div id="key-0-22" title="6" class="key" style="top: 67.5px; left: 270px;">6</div>
+        <div id="key-0-23" title="7" class="key" style="top: 67.5px; left: 315px;">7</div>
+        <div id="key-0-24" title="8" class="key" style="top: 67.5px; left: 360px;">8</div>
+        <div id="key-0-25" title="9" class="key" style="top: 67.5px; left: 405px;">9</div>
+        <div id="key-0-26" title="0" class="key" style="top: 67.5px; left: 450px;">0</div>
+        <div id="key-0-27" title="-" class="key" style="top: 67.5px; left: 495px;">-</div>
+        <div id="key-0-28" title="^" class="key" style="top: 67.5px; left: 540px;">^</div>
+        <div id="key-0-29" title="\" class="key"  style="top: 67.5px; left: 585px;">\</div>
+
+        <div id="key-0-38" title="q" class="key" style="top: 112.5px; left: 67.5px;">Q</div>
+        <div id="key-0-39" title="w" class="key" style="top: 112.5px; left: 112.5px;">W</div>
+        <div id="key-0-40" title="e" class="key" style="top: 112.5px; left: 157.5px;">E</div>
+        <div id="key-0-41" title="r" class="key" style="top: 112.5px; left: 202.5px;">R</div>
+        <div id="key-0-42" title="t" class="key" style="top: 112.5px; left: 247.5px;">T</div>
+        <div id="key-0-43" title="y" class="key" style="top: 112.5px; left: 292.5px;">Y</div>
+        <div id="key-0-44" title="u" class="key" style="top: 112.5px; left: 337.5px;">U</div>
+        <div id="key-0-45" title="i" class="key" style="top: 112.5px; left: 382.5px;">I</div>
+        <div id="key-0-46" title="o" class="key" style="top: 112.5px; left: 427.5px;">O</div>
+        <div id="key-0-47" title="p" class="key" style="top: 112.5px; left: 472.5px;">P</div>
+        <div id="key-0-48" title="@" class="key" style="top: 112.5px; left: 517.5px;">@</div>
+        <div id="key-0-49" title="[" class="key" style="top: 112.5px; left: 562.5px;">[</div>
+
+        <div id="key-0-59" title="a" class="key" style="top: 157.5px; left: 78.75px;">A</div>
+        <div id="key-0-60" title="s" class="key" style="top: 157.5px; left: 123.75px;">S</div>
+        <div id="key-0-61" title="d" class="key" style="top: 157.5px; left: 168.75px;">D</div>
+        <div id="key-0-62" title="f" class="key" style="top: 157.5px; left: 213.75px;">F</div>
+        <div id="key-0-63" title="g" class="key" style="top: 157.5px; left: 258.75px;">G</div>
+        <div id="key-0-64" title="h" class="key" style="top: 157.5px; left: 303.75px;">H</div>
+        <div id="key-0-65" title="j" class="key" style="top: 157.5px; left: 348.75px;">J</div>
+        <div id="key-0-66" title="k" class="key" style="top: 157.5px; left: 393.75px;">K</div>
+        <div id="key-0-67" title="l" class="key" style="top: 157.5px; left: 438.75px;">L</div>
+        <div id="key-0-68" title=";" class="key" style="top: 157.5px; left: 483.75px;">;</div>
+        <div id="key-0-69" title=":" class="key" style="top: 157.5px; left: 528.75px;">:</div>
+
+        <div id="key-0-76" title="z" class="key" style="top: 202.5px; left: 101.25px;">Z</div>
+        <div id="key-0-77" title="x" class="key" style="top: 202.5px; left: 146.25px;">X</div>
+        <div id="key-0-78" title="c" class="key" style="top: 202.5px; left: 191.25px;">C</div>
+        <div id="key-0-79" title="v" class="key" style="top: 202.5px; left: 236.25px;">V</div>
+        <div id="key-0-80" title="b" class="key" style="top: 202.5px; left: 281.25px;">B</div>
+        <div id="key-0-81" title="n" class="key" style="top: 202.5px; left: 326.25px;">N</div>
+        <div id="key-0-82" title="m" class="key" style="top: 202.5px; left: 371.25px;">M</div>
+        <div id="key-0-83" title="," class="key" style="top: 202.5px; left: 416.25px;">,</div>
+        <div id="key-0-84" title="." class="key" style="top: 202.5px; left: 461.25px;">.</div>
+        <div id="key-0-85" title="/" class="key" style="top: 202.5px; left: 506.25px;">/</div>
+
+        <div id="key-0-87" title="up" class="key" style="top: 157.5px; left: 631.25px;">Up</div>
+        <div id="key-0-100" title="left" class="key" style="top: 202.5px; left: 586.25px;">Left</div>
+        <div id="key-0-101" title="down" class="key" style="top: 202.5px; left: 631.25px;">Down</div>
+        <div id="key-0-102" title="right" class="key" style="top: 202.5px; left: 676.25px;">Right</div>
+
     </div>
     <br>
-    - qwerty key: notes (in chromatic c system layout)  <br>
-    - left / right key: transpose  <br>
-    - up / down key: velocity   <br><br>
+    - qwerty key: notes (in chromatic c system layout) <br>
+    - left / right key: transpose <br>
+    - up / down key: velocity <br><br>
     recommend chrome browser<br>
     need installation of virtual midi device<br>
+    </div>
 </body>
 
 <script type="text/javascript">
@@ -39,16 +126,116 @@
 
         initMidi();
 
-        //transpose and velocity
+        //add keyinput event listener
+        //appearance
         document.body.addEventListener('keydown',
             event => {
-                if (event.keyCode == '37') { note_ref -= 1 } //left
-                if (event.keyCode == '39') { note_ref += 1 } //right
-                if (event.keyCode == '38') { velocity = clamp(velocity + 5, 0, 127) } //up
-                if (event.keyCode == '40') { velocity = clamp(velocity - 5, 0, 127) } //down
+                if (event.key === '1' && !event.repeat) { document.querySelector('[title="1"]').classList.add('detected'); }
+                if (event.key === '2' && !event.repeat) { document.querySelector('[title="2"]').classList.add('detected'); }
+                if (event.key === '3' && !event.repeat) { document.querySelector('[title="3"]').classList.add('detected'); }
+                if (event.key === '4' && !event.repeat) { document.querySelector('[title="4"]').classList.add('detected'); }
+                if (event.key === '5' && !event.repeat) { document.querySelector('[title="5"]').classList.add('detected'); }
+                if (event.key === '6' && !event.repeat) { document.querySelector('[title="6"]').classList.add('detected'); }
+                if (event.key === '7' && !event.repeat) { document.querySelector('[title="7"]').classList.add('detected'); }
+                if (event.key === '8' && !event.repeat) { document.querySelector('[title="8"]').classList.add('detected'); }
+                if (event.key === '9' && !event.repeat) { document.querySelector('[title="9"]').classList.add('detected'); }
+                if (event.key === '0' && !event.repeat) { document.querySelector('[title="0"]').classList.add('detected'); }
+                if (event.key === '-' && !event.repeat) { document.querySelector('[title="-"]').classList.add('detected'); }
+                if (event.key === '^' && !event.repeat) { document.querySelector('[title="^"]').classList.add('detected'); }
+                if (event.key === '\\' && !event.repeat) { document.querySelector('[title="\\"]').classList.add('detected'); }
+                if (event.key === 'q' && !event.repeat) { document.querySelector('[title="q"]').classList.add('detected'); }
+                if (event.key === 'w' && !event.repeat) { document.querySelector('[title="w"]').classList.add('detected'); }
+                if (event.key === 'e' && !event.repeat) { document.querySelector('[title="e"]').classList.add('detected'); }
+                if (event.key === 'r' && !event.repeat) { document.querySelector('[title="r"]').classList.add('detected'); }
+                if (event.key === 't' && !event.repeat) { document.querySelector('[title="t"]').classList.add('detected'); }
+                if (event.key === 'y' && !event.repeat) { document.querySelector('[title="y"]').classList.add('detected'); }
+                if (event.key === 'u' && !event.repeat) { document.querySelector('[title="u"]').classList.add('detected'); }
+                if (event.key === 'i' && !event.repeat) { document.querySelector('[title="i"]').classList.add('detected'); }
+                if (event.key === 'o' && !event.repeat) { document.querySelector('[title="o"]').classList.add('detected'); }
+                if (event.key === 'p' && !event.repeat) { document.querySelector('[title="p"]').classList.add('detected'); }
+                if (event.key === '@' && !event.repeat) { document.querySelector('[title="@"]').classList.add('detected'); }
+                if (event.key === '[' && !event.repeat) { document.querySelector('[title="["]').classList.add('detected'); }
+                if (event.key === 'a' && !event.repeat) { document.querySelector('[title="a"]').classList.add('detected'); }
+                if (event.key === 's' && !event.repeat) { document.querySelector('[title="s"]').classList.add('detected'); }
+                if (event.key === 'd' && !event.repeat) { document.querySelector('[title="d"]').classList.add('detected'); }
+                if (event.key === 'f' && !event.repeat) { document.querySelector('[title="f"]').classList.add('detected'); }
+                if (event.key === 'g' && !event.repeat) { document.querySelector('[title="g"]').classList.add('detected'); }
+                if (event.key === 'h' && !event.repeat) { document.querySelector('[title="h"]').classList.add('detected'); }
+                if (event.key === 'j' && !event.repeat) { document.querySelector('[title="j"]').classList.add('detected'); }
+                if (event.key === 'k' && !event.repeat) { document.querySelector('[title="k"]').classList.add('detected'); }
+                if (event.key === 'l' && !event.repeat) { document.querySelector('[title="l"]').classList.add('detected'); }
+                if (event.key === ';' && !event.repeat) { document.querySelector('[title=";"]').classList.add('detected'); }
+                if (event.key === ':' && !event.repeat) { document.querySelector('[title=":"]').classList.add('detected'); }
+                if (event.key === 'z' && !event.repeat) { document.querySelector('[title="z"]').classList.add('detected'); }
+                if (event.key === 'x' && !event.repeat) { document.querySelector('[title="x"]').classList.add('detected'); }
+                if (event.key === 'c' && !event.repeat) { document.querySelector('[title="c"]').classList.add('detected'); }
+                if (event.key === 'v' && !event.repeat) { document.querySelector('[title="v"]').classList.add('detected'); }
+                if (event.key === 'b' && !event.repeat) { document.querySelector('[title="b"]').classList.add('detected'); }
+                if (event.key === 'n' && !event.repeat) { document.querySelector('[title="n"]').classList.add('detected'); }
+                if (event.key === 'm' && !event.repeat) { document.querySelector('[title="m"]').classList.add('detected'); }
+                if (event.key === ',' && !event.repeat) { document.querySelector('[title=","]').classList.add('detected'); }
+                if (event.key === '.' && !event.repeat) { document.querySelector('[title="."]').classList.add('detected'); }
+                if (event.key === '/' && !event.repeat) { document.querySelector('[title="/"]').classList.add('detected'); }
+                if (event.keyCode == '37') { document.querySelector('[title="left"]').classList.add('detected'); } //left
+                if (event.keyCode == '39') { document.querySelector('[title="right"]').classList.add('detected'); } //right
+                if (event.keyCode == '38') { document.querySelector('[title="up"]').classList.add('detected'); } //up
+                if (event.keyCode == '40') { document.querySelector('[title="down"]').classList.add('detected'); } //down
+            });
+            document.body.addEventListener('keyup',
+            event => {
+                if (event.key === '1' && !event.repeat) { document.querySelector('[title="1"]').classList.remove('detected'); }
+                if (event.key === '2' && !event.repeat) { document.querySelector('[title="2"]').classList.remove('detected'); }
+                if (event.key === '3' && !event.repeat) { document.querySelector('[title="3"]').classList.remove('detected'); }
+                if (event.key === '4' && !event.repeat) { document.querySelector('[title="4"]').classList.remove('detected'); }
+                if (event.key === '5' && !event.repeat) { document.querySelector('[title="5"]').classList.remove('detected'); }
+                if (event.key === '6' && !event.repeat) { document.querySelector('[title="6"]').classList.remove('detected'); }
+                if (event.key === '7' && !event.repeat) { document.querySelector('[title="7"]').classList.remove('detected'); }
+                if (event.key === '8' && !event.repeat) { document.querySelector('[title="8"]').classList.remove('detected'); }
+                if (event.key === '9' && !event.repeat) { document.querySelector('[title="9"]').classList.remove('detected'); }
+                if (event.key === '0' && !event.repeat) { document.querySelector('[title="0"]').classList.remove('detected'); }
+                if (event.key === '-' && !event.repeat) { document.querySelector('[title="-"]').classList.remove('detected'); }
+                if (event.key === '^' && !event.repeat) { document.querySelector('[title="^"]').classList.remove('detected'); }
+                if (event.key === '\\' && !event.repeat) { document.querySelector('[title="\\"]').classList.remove('detected'); }
+                if (event.key === 'q' && !event.repeat) { document.querySelector('[title="q"]').classList.remove('detected'); }
+                if (event.key === 'w' && !event.repeat) { document.querySelector('[title="w"]').classList.remove('detected'); }
+                if (event.key === 'e' && !event.repeat) { document.querySelector('[title="e"]').classList.remove('detected'); }
+                if (event.key === 'r' && !event.repeat) { document.querySelector('[title="r"]').classList.remove('detected'); }
+                if (event.key === 't' && !event.repeat) { document.querySelector('[title="t"]').classList.remove('detected'); }
+                if (event.key === 'y' && !event.repeat) { document.querySelector('[title="y"]').classList.remove('detected'); }
+                if (event.key === 'u' && !event.repeat) { document.querySelector('[title="u"]').classList.remove('detected'); }
+                if (event.key === 'i' && !event.repeat) { document.querySelector('[title="i"]').classList.remove('detected'); }
+                if (event.key === 'o' && !event.repeat) { document.querySelector('[title="o"]').classList.remove('detected'); }
+                if (event.key === 'p' && !event.repeat) { document.querySelector('[title="p"]').classList.remove('detected'); }
+                if (event.key === '@' && !event.repeat) { document.querySelector('[title="@"]').classList.remove('detected'); }
+                if (event.key === '[' && !event.repeat) { document.querySelector('[title="["]').classList.remove('detected'); }
+                if (event.key === 'a' && !event.repeat) { document.querySelector('[title="a"]').classList.remove('detected'); }
+                if (event.key === 's' && !event.repeat) { document.querySelector('[title="s"]').classList.remove('detected'); }
+                if (event.key === 'd' && !event.repeat) { document.querySelector('[title="d"]').classList.remove('detected'); }
+                if (event.key === 'f' && !event.repeat) { document.querySelector('[title="f"]').classList.remove('detected'); }
+                if (event.key === 'g' && !event.repeat) { document.querySelector('[title="g"]').classList.remove('detected'); }
+                if (event.key === 'h' && !event.repeat) { document.querySelector('[title="h"]').classList.remove('detected'); }
+                if (event.key === 'j' && !event.repeat) { document.querySelector('[title="j"]').classList.remove('detected'); }
+                if (event.key === 'k' && !event.repeat) { document.querySelector('[title="k"]').classList.remove('detected'); }
+                if (event.key === 'l' && !event.repeat) { document.querySelector('[title="l"]').classList.remove('detected'); }
+                if (event.key === ';' && !event.repeat) { document.querySelector('[title=";"]').classList.remove('detected'); }
+                if (event.key === ':' && !event.repeat) { document.querySelector('[title=":"]').classList.remove('detected'); }
+                if (event.key === 'z' && !event.repeat) { document.querySelector('[title="z"]').classList.remove('detected'); }
+                if (event.key === 'x' && !event.repeat) { document.querySelector('[title="x"]').classList.remove('detected'); }
+                if (event.key === 'c' && !event.repeat) { document.querySelector('[title="c"]').classList.remove('detected'); }
+                if (event.key === 'v' && !event.repeat) { document.querySelector('[title="v"]').classList.remove('detected'); }
+                if (event.key === 'b' && !event.repeat) { document.querySelector('[title="b"]').classList.remove('detected'); }
+                if (event.key === 'n' && !event.repeat) { document.querySelector('[title="n"]').classList.remove('detected'); }
+                if (event.key === 'm' && !event.repeat) { document.querySelector('[title="m"]').classList.remove('detected'); }
+                if (event.key === ',' && !event.repeat) { document.querySelector('[title=","]').classList.remove('detected'); }
+                if (event.key === '.' && !event.repeat) { document.querySelector('[title="."]').classList.remove('detected'); }
+                if (event.key === '/' && !event.repeat) { document.querySelector('[title="/"]').classList.remove('detected'); }
+                if (event.keyCode == '37') { document.querySelector('[title="left"]').classList.remove('detected'); } //left
+                if (event.keyCode == '39') { document.querySelector('[title="right"]').classList.remove('detected'); } //right
+                if (event.keyCode == '38') { document.querySelector('[title="up"]').classList.remove('detected'); } //up
+                if (event.keyCode == '40') { document.querySelector('[title="down"]').classList.remove('detected'); } //down
             });
 
-        //note on
+        //send midi message
         document.body.addEventListener('keydown',
             event => {
                 if (event.key === '3' && !event.repeat) { outMessage(0x90, note_ref + 3, velocity); }
@@ -95,8 +282,12 @@
                 if (event.key === ',' && !event.repeat) { outMessage(0x90, note_ref + 24, velocity); }
                 if (event.key === '.' && !event.repeat) { outMessage(0x90, note_ref + 27, velocity); }
                 if (event.key === '/' && !event.repeat) { outMessage(0x90, note_ref + 30, velocity); }
+                //transpose and velocity
+                if (event.keyCode == '37') { note_ref -= 1 } //left
+                if (event.keyCode == '39') { note_ref += 1 } //right
+                if (event.keyCode == '38') { velocity = clamp(velocity + 5, 0, 127) } //up
+                if (event.keyCode == '40') { velocity = clamp(velocity - 5, 0, 127) } //down
             });
-        //note off
         document.body.addEventListener('keyup',
             event => {
                 if (event.key === '3' && !event.repeat) { outMessage(0x80, note_ref + 3, velocity); }
