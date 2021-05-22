@@ -129,8 +129,16 @@
 
 <script type="text/javascript">
     window.onload = function () {
-        var note_ref = 38
+        var note_ref = 46
         var velocity = 0x40
+        var minor = false
+        var major = false
+        var seventh = false
+        var dim = false
+        var aug = false
+        var sus4 = false
+        var subup = false
+        var mono = false
 
         setInputMenu(document.input_device_select.ids);
         setOutputMenu(document.output_device_select.ids);
@@ -297,62 +305,24 @@
         //send midi message
         document.body.addEventListener('keydown',
             event => {
-                if (event.keyCode == '112' && !event.repeat) { outMessage(0x90, note_ref + 1 , velocity); }
-                if (event.keyCode == '113' && !event.repeat) { outMessage(0x90, note_ref + 4 , velocity); }
-                if (event.keyCode == '114' && !event.repeat) { outMessage(0x90, note_ref + 7 , velocity); }
-                if (event.keyCode == '115' && !event.repeat) { outMessage(0x90, note_ref + 10, velocity); }
-                if (event.keyCode == '116' && !event.repeat) { outMessage(0x90, note_ref + 13, velocity); }
-                if (event.keyCode == '117' && !event.repeat) { outMessage(0x90, note_ref + 16, velocity); }
-                if (event.keyCode == '118' && !event.repeat) { outMessage(0x90, note_ref + 19, velocity); }
-                if (event.keyCode == '119' && !event.repeat) { outMessage(0x90, note_ref + 22, velocity); }
-                if (event.keyCode == '120' && !event.repeat) { outMessage(0x90, note_ref + 25, velocity); }
-                if (event.keyCode == '121' && !event.repeat) { outMessage(0x90, note_ref + 28, velocity); }
-                if (event.keyCode == '122' && !event.repeat) { outMessage(0x90, note_ref + 31, velocity); }
-                if (event.keyCode == '123' && !event.repeat) { outMessage(0x90, note_ref + 34, velocity); }
-                if (event.key === '3' && !event.repeat) { outMessage(0x90, note_ref + 3, velocity); }
-                if (event.key === '4' && !event.repeat) { outMessage(0x90, note_ref + 6, velocity); }
-                if (event.key === '5' && !event.repeat) { outMessage(0x90, note_ref + 9, velocity); }
-                if (event.key === '6' && !event.repeat) { outMessage(0x90, note_ref + 12, velocity); }
-                if (event.key === '7' && !event.repeat) { outMessage(0x90, note_ref + 15, velocity); }
-                if (event.key === '8' && !event.repeat) { outMessage(0x90, note_ref + 18, velocity); }
-                if (event.key === '9' && !event.repeat) { outMessage(0x90, note_ref + 21, velocity); }
-                if (event.key === '0' && !event.repeat) { outMessage(0x90, note_ref + 24, velocity); }
-                if (event.key === '-' && !event.repeat) { outMessage(0x90, note_ref + 27, velocity); }
-                if (event.key === '^' && !event.repeat) { outMessage(0x90, note_ref + 30, velocity); }
-                if (event.key === '\\' && !event.repeat) { outMessage(0x90, note_ref + 33, velocity); }
-                if (event.key === 'w' && !event.repeat) { outMessage(0x90, note_ref + 2, velocity); }
-                if (event.key === 'e' && !event.repeat) { outMessage(0x90, note_ref + 5, velocity); }
-                if (event.key === 'r' && !event.repeat) { outMessage(0x90, note_ref + 8, velocity); }
-                if (event.key === 't' && !event.repeat) { outMessage(0x90, note_ref + 11, velocity); }
-                if (event.key === 'y' && !event.repeat) { outMessage(0x90, note_ref + 14, velocity); }
-                if (event.key === 'u' && !event.repeat) { outMessage(0x90, note_ref + 17, velocity); }
-                if (event.key === 'i' && !event.repeat) { outMessage(0x90, note_ref + 20, velocity); }
-                if (event.key === 'o' && !event.repeat) { outMessage(0x90, note_ref + 23, velocity); }
-                if (event.key === 'p' && !event.repeat) { outMessage(0x90, note_ref + 26, velocity); }
-                if (event.key === '@' && !event.repeat) { outMessage(0x90, note_ref + 29, velocity); }
-                if (event.key === '[' && !event.repeat) { outMessage(0x90, note_ref + 32, velocity); }
-                if (event.key === 'a' && !event.repeat) { outMessage(0x90, note_ref + 1, velocity); }
-                if (event.key === 's' && !event.repeat) { outMessage(0x90, note_ref + 4, velocity); }
-                if (event.key === 'd' && !event.repeat) { outMessage(0x90, note_ref + 7, velocity); }
-                if (event.key === 'f' && !event.repeat) { outMessage(0x90, note_ref + 10, velocity); }
-                if (event.key === 'g' && !event.repeat) { outMessage(0x90, note_ref + 13, velocity); }
-                if (event.key === 'h' && !event.repeat) { outMessage(0x90, note_ref + 16, velocity); }
-                if (event.key === 'j' && !event.repeat) { outMessage(0x90, note_ref + 19, velocity); }
-                if (event.key === 'k' && !event.repeat) { outMessage(0x90, note_ref + 22, velocity); }
-                if (event.key === 'l' && !event.repeat) { outMessage(0x90, note_ref + 25, velocity); }
-                if (event.key === ';' && !event.repeat) { outMessage(0x90, note_ref + 28, velocity); }
-                if (event.key === ':' && !event.repeat) { outMessage(0x90, note_ref + 31, velocity); }
-                if (event.key === '_' && !event.repeat) { outMessage(0x90, note_ref + 0, velocity); }
-                if (event.key === 'z' && !event.repeat) { outMessage(0x90, note_ref + 3, velocity); }
-                if (event.key === 'x' && !event.repeat) { outMessage(0x90, note_ref + 6, velocity); }
-                if (event.key === 'c' && !event.repeat) { outMessage(0x90, note_ref + 9, velocity); }
-                if (event.key === 'v' && !event.repeat) { outMessage(0x90, note_ref + 12, velocity); }
-                if (event.key === 'b' && !event.repeat) { outMessage(0x90, note_ref + 15, velocity); }
-                if (event.key === 'n' && !event.repeat) { outMessage(0x90, note_ref + 18, velocity); }
-                if (event.key === 'm' && !event.repeat) { outMessage(0x90, note_ref + 21, velocity); }
-                if (event.key === ',' && !event.repeat) { outMessage(0x90, note_ref + 24, velocity); }
-                if (event.key === '.' && !event.repeat) { outMessage(0x90, note_ref + 27, velocity); }
-                if (event.key === '/' && !event.repeat) { outMessage(0x90, note_ref + 30, velocity); }
+                if (event.key === 'q' && !event.repeat) { minor = true; }
+                if (event.key === 'w' && !event.repeat) { outChord(0x90, velocity, note_ref - 5 , 4, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'e' && !event.repeat) { outChord(0x90, velocity, note_ref + 2 , 4, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'r' && !event.repeat) { outChord(0x90, velocity, note_ref - 3, 4, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 't' && !event.repeat) { seventh = true; }
+
+                if (event.key === 'a' && !event.repeat) { major = true; }
+                if (event.key === 's' && !event.repeat) { outChord(0x90, velocity, note_ref + 4 , 3, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'd' && !event.repeat) { outChord(0x90, velocity, note_ref - 1 , 3, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'f' && !event.repeat) { outChord(0x90, velocity, note_ref - 6 , 3, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'g' && !event.repeat) { outChord(0x90, velocity, note_ref + 1 , 3, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+
+                if (event.key === 'z' && !event.repeat) { dim = true; }
+                if (event.key === 'x' && !event.repeat) { aug = true; }
+                if (event.key === 'c' && !event.repeat) { sus4 = true; }
+                if (event.key === 'v' && !event.repeat) { subup = true; }
+                if (event.key === 'b' && !event.repeat) { mono = true; }
+
                 //transpose and velocity
                 if (event.keyCode == '37') { note_ref -= 1 } //left
                 if (event.keyCode == '39') { note_ref += 1 } //right
@@ -361,68 +331,104 @@
             });
         document.body.addEventListener('keyup',
             event => {
-                if (event.keyCode == '112' && !event.repeat) { outMessage(0x80, note_ref + 1 , velocity); }
-                if (event.keyCode == '113' && !event.repeat) { outMessage(0x80, note_ref + 4 , velocity); }
-                if (event.keyCode == '114' && !event.repeat) { outMessage(0x80, note_ref + 7 , velocity); }
-                if (event.keyCode == '115' && !event.repeat) { outMessage(0x80, note_ref + 10, velocity); }
-                if (event.keyCode == '116' && !event.repeat) { outMessage(0x80, note_ref + 13, velocity); }
-                if (event.keyCode == '117' && !event.repeat) { outMessage(0x80, note_ref + 16, velocity); }
-                if (event.keyCode == '118' && !event.repeat) { outMessage(0x80, note_ref + 19, velocity); }
-                if (event.keyCode == '119' && !event.repeat) { outMessage(0x80, note_ref + 22, velocity); }
-                if (event.keyCode == '120' && !event.repeat) { outMessage(0x80, note_ref + 25, velocity); }
-                if (event.keyCode == '121' && !event.repeat) { outMessage(0x80, note_ref + 28, velocity); }
-                if (event.keyCode == '122' && !event.repeat) { outMessage(0x80, note_ref + 31, velocity); }
-                if (event.keyCode == '123' && !event.repeat) { outMessage(0x80, note_ref + 34, velocity); }
-                if (event.key === '3' && !event.repeat) { outMessage(0x80, note_ref + 3, velocity); }
-                if (event.key === '4' && !event.repeat) { outMessage(0x80, note_ref + 6, velocity); }
-                if (event.key === '5' && !event.repeat) { outMessage(0x80, note_ref + 9, velocity); }
-                if (event.key === '6' && !event.repeat) { outMessage(0x80, note_ref + 12, velocity); }
-                if (event.key === '7' && !event.repeat) { outMessage(0x80, note_ref + 15, velocity); }
-                if (event.key === '8' && !event.repeat) { outMessage(0x80, note_ref + 18, velocity); }
-                if (event.key === '9' && !event.repeat) { outMessage(0x80, note_ref + 21, velocity); }
-                if (event.key === '0' && !event.repeat) { outMessage(0x80, note_ref + 24, velocity); }
-                if (event.key === '-' && !event.repeat) { outMessage(0x80, note_ref + 27, velocity); }
-                if (event.key === '^' && !event.repeat) { outMessage(0x80, note_ref + 30, velocity); }
-                if (event.key === '\\' && !event.repeat) { outMessage(0x80, note_ref + 33, velocity); }
-                if (event.key === 'w' && !event.repeat) { outMessage(0x80, note_ref + 2, velocity); }
-                if (event.key === 'e' && !event.repeat) { outMessage(0x80, note_ref + 5, velocity); }
-                if (event.key === 'r' && !event.repeat) { outMessage(0x80, note_ref + 8, velocity); }
-                if (event.key === 't' && !event.repeat) { outMessage(0x80, note_ref + 11, velocity); }
-                if (event.key === 'y' && !event.repeat) { outMessage(0x80, note_ref + 14, velocity); }
-                if (event.key === 'u' && !event.repeat) { outMessage(0x80, note_ref + 17, velocity); }
-                if (event.key === 'i' && !event.repeat) { outMessage(0x80, note_ref + 20, velocity); }
-                if (event.key === 'o' && !event.repeat) { outMessage(0x80, note_ref + 23, velocity); }
-                if (event.key === 'p' && !event.repeat) { outMessage(0x80, note_ref + 26, velocity); }
-                if (event.key === '@' && !event.repeat) { outMessage(0x80, note_ref + 29, velocity); }
-                if (event.key === '[' && !event.repeat) { outMessage(0x80, note_ref + 32, velocity); }
-                if (event.key === 'a' && !event.repeat) { outMessage(0x80, note_ref + 1, velocity); }
-                if (event.key === 's' && !event.repeat) { outMessage(0x80, note_ref + 4, velocity); }
-                if (event.key === 'd' && !event.repeat) { outMessage(0x80, note_ref + 7, velocity); }
-                if (event.key === 'f' && !event.repeat) { outMessage(0x80, note_ref + 10, velocity); }
-                if (event.key === 'g' && !event.repeat) { outMessage(0x80, note_ref + 13, velocity); }
-                if (event.key === 'h' && !event.repeat) { outMessage(0x80, note_ref + 16, velocity); }
-                if (event.key === 'j' && !event.repeat) { outMessage(0x80, note_ref + 19, velocity); }
-                if (event.key === 'k' && !event.repeat) { outMessage(0x80, note_ref + 22, velocity); }
-                if (event.key === 'l' && !event.repeat) { outMessage(0x80, note_ref + 25, velocity); }
-                if (event.key === ';' && !event.repeat) { outMessage(0x80, note_ref + 28, velocity); }
-                if (event.key === ':' && !event.repeat) { outMessage(0x80, note_ref + 31, velocity); }
-                if (event.key === '_' && !event.repeat) { outMessage(0x80, note_ref + 0, velocity); }
-                if (event.key === 'z' && !event.repeat) { outMessage(0x80, note_ref + 3, velocity); }
-                if (event.key === 'x' && !event.repeat) { outMessage(0x80, note_ref + 6, velocity); }
-                if (event.key === 'c' && !event.repeat) { outMessage(0x80, note_ref + 9, velocity); }
-                if (event.key === 'v' && !event.repeat) { outMessage(0x80, note_ref + 12, velocity); }
-                if (event.key === 'b' && !event.repeat) { outMessage(0x80, note_ref + 15, velocity); }
-                if (event.key === 'n' && !event.repeat) { outMessage(0x80, note_ref + 18, velocity); }
-                if (event.key === 'm' && !event.repeat) { outMessage(0x80, note_ref + 21, velocity); }
-                if (event.key === ',' && !event.repeat) { outMessage(0x80, note_ref + 24, velocity); }
-                if (event.key === '.' && !event.repeat) { outMessage(0x80, note_ref + 27, velocity); }
-                if (event.key === '/' && !event.repeat) { outMessage(0x80, note_ref + 30, velocity); }
+                if (event.key === 'q' && !event.repeat) { minor = false; }
+                if (event.key === 'w' && !event.repeat) { outChord(0x80, velocity, note_ref - 5 , 4, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'e' && !event.repeat) { outChord(0x80, velocity, note_ref + 2 , 4, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'r' && !event.repeat) { outChord(0x80, velocity, note_ref - 3 , 4, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 't' && !event.repeat) { seventh = false; }
+
+                if (event.key === 'a' && !event.repeat) { major = false; }
+                if (event.key === 's' && !event.repeat) { outChord(0x80, velocity, note_ref + 4 , 3, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'd' && !event.repeat) { outChord(0x80, velocity, note_ref - 1 , 3, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'f' && !event.repeat) { outChord(0x80, velocity, note_ref - 6, 3, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+                if (event.key === 'g' && !event.repeat) { outChord(0x80, velocity, note_ref + 1 , 3, 7, minor, major, seventh, dim, aug, sus4, subup, mono); }
+
+                if (event.key === 'z' && !event.repeat) { dim = false; }
+                if (event.key === 'x' && !event.repeat) { aug = false; }
+                if (event.key === 'c' && !event.repeat) { sus4 = false; }
+                if (event.key === 'v' && !event.repeat) { subup = false; }
+                if (event.key === 'b' && !event.repeat) { mono = false; }
             });
     }
 
     function clamp(num, min, max) {
         return num <= min ? min : num >= max ? max : num;
     }
+
+    function outChord(mode, velocity, root, third, fifth, minor, major, seventh, dim, aug, sus4, subup, mono){
+        //TODO: height, turn, open,
+        if (subup) {root += 1;}
+        if (minor) {third = 3;}
+        if (major) {third = 4;}
+        if (sus4) {
+            third = 5;
+        }
+        if (dim) {
+            third = 3;
+            fifth = 6;
+        }
+        if (aug) {
+            third = 4;
+            fifth = 8;
+        }
+        /*
+        if (seventh) {
+            if (third == 3) {
+                fifth = 6;
+            }
+        }
+        */
+
+        if (root + third < 50 ){
+            third += 12
+        }
+
+        outMessage(mode, root, velocity);
+        if(!mono){
+            outMessage(mode, root+third, velocity);
+            outMessage(mode, root+fifth, velocity);
+        }
+        if (seventh) {
+            outMessage(mode, root+10, velocity);
+        }
+
+        var i;
+        if(mode == 0x80) {
+            for (i = -1; i < 25; i++) {
+                outMessage(mode, root+i, velocity);
+            }
+        }
+	}
+
+    /*
+    idea 
+
+    1M  2m  3m  4M  5M  6m  7dim
+     M7  m7  m7  M7  7   m7  h7
+             M   m       7
+
+    4M 1M 5M 3M
+    2m 6m 3m 4m
+    4M 1M 5M 7d
+
+    468 358 579  5+710
+    469 368 5710 46-8
+    146 135 257  247
+
+    koyubi 7
+
+    idea2 
+
+    (m) 4M 1M 5M (7 for major, h7 for miner)
+    (M) 2m 6m 3m 7m
+    (dim) (aug) (sus4) (subtoneup) (root only)
+
+    | m7  \ M7
+
+    aug 
+      M7-3 or h7+9 -> -2 == aug
+      or 7+5 or 7alt-5+9 -> -1 == subtoneup & aug
+*/
 </script>
 
 </html>
