@@ -1,0 +1,87 @@
+/*for pc*/
+@media screen and (min-width: 767px) {
+  body {
+    width: 500px;
+    margin: auto;
+  }
+}
+  
+body{
+  background: silver;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}
+
+#main {
+  text-align: center;
+}
+
+#title{
+  padding: 8px;
+}
+
+#field-wrapper {
+  position: relative;
+  width: 100%;
+}
+#field-wrapper:before {
+    content:"";
+    display: block;
+    padding-top: 100%; /* 高さを幅の100%に固定 */
+}
+#field {
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: silver;
+  text-align: center;
+}
+.row {
+  height: 16%;
+}
+.cell{
+  border-radius: 10px;
+  margin: 2px;
+  background: silver;
+  opacity: 1;
+  border: 1px solid black;
+}
+
+#colors{
+  padding: 8px;
+  height: auto;
+}
+.color-row{
+  height: auto;
+}
+.color{
+  border-radius: 10px;
+  margin: 2px;  
+  height: 60px;
+  opacity: 1;
+  border: 1px solid black;
+}
+
+ons-col {
+  font-size: 20px;
+  margin: 3px;
+}
+
+span {
+  font-size: 20px;
+  align-items: center;
+}
+
+button {
+  text-align: center;
+}
+
+
+.big-button {
+  width: 30%;
+  height: 80px;
+  font-size: 20px;
+  margin: 5px;
+}
