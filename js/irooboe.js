@@ -8,14 +8,14 @@ colorIdx.splice(getRandomInt(5),1);
 let color = colors[1];
 
 let amount = 5;
+let time = 3;
+let life = 3;
 
 let answer = Array(FIELD_SIZE*FIELD_SIZE).fill('silver');
 let response = Array(FIELD_SIZE*FIELD_SIZE).fill('silver');
 let diff = 0
 let diffPrev = 0;
-let life = 3;
 
-let time = 3;
 let timer = 0;
 
 let modes = ['standby', 'memorize', 'recall','result']
@@ -361,6 +361,7 @@ function hilightBorder(id){
 function checkField(idx) {
   if(response[idx-1] != colors[0]){
     //already changed
+    setTimeout('changeColor("#S'+idx+'", response['+idx+'-1]);',50);
     return;
   }
   response[idx-1] = color;
